@@ -1,0 +1,381 @@
+/* Основные стили */
+body {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #ff9a9e, #fbc2eb, #a6c1ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Луна */
+.moon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background: #f5f3ce;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(245, 243, 206, 0.8);
+    z-index: 1;
+    animation: moonGlow 3s infinite alternate;
+}
+
+@keyframes moonGlow {
+    0% {
+        box-shadow: 0 0 50px rgba(245, 243, 206, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 70px rgba(245, 243, 206, 1);
+    }
+}
+
+/* Падающие звезды */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.stars::before, .stars::after, .stars span {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: fallingStars 3s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.stars::before {
+    top: -10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.stars::after {
+    top: -10%;
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+.stars span {
+    top: -10%;
+    left: 50%;
+    animation-delay: 2.5s;
+}
+
+@keyframes fallingStars {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Огромные падающие звезды */
+.huge-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.huge-stars::before, .huge-stars::after, .huge-stars span {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    animation: fallingHugeStars 5s linear infinite;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.huge-stars::before {
+    top: -10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.huge-stars::after {
+    top: -10%;
+    left: 90%;
+    animation-delay: 2.5s;
+}
+
+.huge-stars span {
+    top: -10%;
+    left: 50%;
+    animation-delay: 5s;
+}
+
+@keyframes fallingHugeStars {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Цветы */
+.flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.flower {
+    position: absolute;
+    background-image: url('flower.png'); /* Замени на свою картинку цветка */
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    animation: float 6s infinite ease-in-out;
+}
+
+.flower-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.flower-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.flower-3 {
+    bottom: 10%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Контейнер */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1.5s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #ff6f61;
+    animation: slideIn 1s ease-in-out;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff6f61;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ff3b2f;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #555;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 10px;
+    font-size: 0.8em;
+    color: #ff6f61;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0 5px;
+}
+
+button {
+    padding: 10px;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff3b2f;
+}
+
+#greeting {
+    margin-top: 20px;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.photo-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ff6f61;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none; /* Скрываем контейнер по умолчанию */
+    position: relative;
+}
+
+#userPhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.5s ease-in-out; /* Анимация появления */
+    animation: parallaxPhoto 5s infinite alternate ease-in-out;
+}
+
+#userPhoto.fade-in {
+    opacity: 1; /* Плавное появление */
+}
+
+@keyframes parallaxPhoto {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+#greetingText {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #fff;
+    animation: fadeIn 1s ease-in-out;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Уведомление */
+#notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 111, 97, 0.9);
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    animation: slideUp 0.5s ease-in-out, glow 2s infinite alternate;
+    font-family: 'Dancing Script', cursive;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+    }
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 111, 97, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 111, 97, 1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
