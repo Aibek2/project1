@@ -1,4 +1,25 @@
 /* Основные стили */
+h1 {
+    font-size: 32px; /* Размер по умолчанию */
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 28px; /* Для экранов меньше 1200px */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Для экранов меньше 768px */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px; /* Для экранов меньше 480px */
+    }
+}
 body {
     font-family: 'Pacifico', cursive;
     color: #fff;
